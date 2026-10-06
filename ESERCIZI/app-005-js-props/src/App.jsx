@@ -1,25 +1,10 @@
-const person = {
-  name: "John Doe",
-  imageUrl: "https://react.dev/images/docs/scientists/7vQD0fPs.jpg",
-  theme: {
-    backgroundColor: "black",
-    color: 'pink'
-  }
-}
+import Gallery from './Gallery';
 
-export default function TodoList() {
+export default function App() {
   return (
-    <div style={person.theme}>
-      <h1>{person.name} - Lista task</h1>
-      <img 
-        src={person.imageUrl} 
-        alt={person.name} 
-        className="avatar" />
-      <ul>
-        <li>Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li>
-      </ul>
+    <div>
+      <h1>Welcome to the Scientist Gallery</h1>
+      <Gallery />
     </div>
-  )
+  );
 }
