@@ -8,13 +8,49 @@ export default function Profile() {
   // Rendering
   return (
     <>
-      <div>
-        <h1>Profile</h1>
         <img 
           src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
           alt="Aklilu Lemma"
         />  
-      </div>
     </>
   );
 }
+
+export function Profile2() {
+
+  // Body
+  // Logica di busness
+
+  console.log("Profile component rendered");
+
+  // Rendering
+  return (
+    <>
+        <img 
+            src="https://react.dev/images/docs/scientists/MK3eW3As.jpg"
+            alt="Katherine Johnson"
+        />  
+    </>
+  );
+}
+
+
+function Profile3() {
+
+  // Body
+  // Logica di busness
+
+  console.log("Profile component rendered");
+
+  // Rendering
+  return (
+    <>
+        <img 
+            src="https://react.dev/images/docs/scientists/MK3eW3As.jpg"
+            alt="Katherine Johnson"
+        />  
+    </>
+  );
+}
+
+
