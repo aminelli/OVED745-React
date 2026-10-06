@@ -36,6 +36,7 @@ export default function Gallery() {
         {people.map(person => (
             <Profile
                 key={person.imageId}
+                //key={`Key-${crypto.randomUUID()}`}
                 name={person.name}
                 imageId={person.imageId}
                 profession={person.profession}
