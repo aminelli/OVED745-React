@@ -33,3 +33,26 @@ export default function Profile({
         </section>
     );
 }
+
+
+export function ProfileLight({
+    imageId,
+    name,
+    profession,
+    discovery,
+    imageSize = 70
+}) {
+    return (
+            <li>
+                <img 
+                    src={getImageUrl(imageId)} 
+                    alt={name} 
+                    className="avatar" 
+                    style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
+                />
+                <p><b>Name:</b> {name}</p>
+                <p>Profession: {profession}</p>
+                <p>Discovered: {discovery}</p>   
+            </li>
+    );
+}

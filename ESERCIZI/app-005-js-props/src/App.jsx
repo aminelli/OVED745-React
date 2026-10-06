@@ -1,3 +1,4 @@
+import CheckList from './CheckList';
 import Gallery from './Gallery';
 
 export default function App() {
@@ -5,6 +6,8 @@ export default function App() {
     <div>
       <h1>Welcome to the Scientist Gallery</h1>
       <Gallery />
+      <CheckList />
     </div>
+
   );
 }
