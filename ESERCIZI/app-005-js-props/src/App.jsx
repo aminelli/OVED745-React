@@ -8,14 +8,21 @@ function useTime() {
 
   const [time, setTime] = useState(() => new Date());
   
+  const prova = "Hello";
+
+  
+    
   useEffect(
     () => {
+      
+      document.title = `${prova}`;
+  
       const intervalId = setInterval(
         () => setTime(new Date())
       , 1000
     );
     return () => clearInterval(intervalId);
-  }, []);
+  }, [prova]);
 
   return time;
 

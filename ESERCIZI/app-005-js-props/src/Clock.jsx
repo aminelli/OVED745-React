@@ -1,5 +1,6 @@
 
 export default function Clock({ time }) {
+  //console.log(time);
   const hours = time.getHours();
   let className;
   if (hours >= 0 && hours <= 6) {
