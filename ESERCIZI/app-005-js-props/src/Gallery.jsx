@@ -2,7 +2,7 @@ import Profile from "./Profile";
 
 const people = [
     {
-        imageid : "szV5sdG",
+        imageId : "szV5sdG",
         name : "Maria Skłodowska-Curie",
         profession : "physicist and chemist",
         awards : [
@@ -15,7 +15,7 @@ const people = [
         //imageSize : 70
     },
     {
-        imageid : "YfeOqp2",
+        imageId : "YfeOqp2",
         name : "Katsuko Saruhashi",
         profession : "geochemist",
         awards : [
@@ -35,9 +35,9 @@ export default function Gallery() {
         <h1>Gallery scienziati</h1>
         {people.map(person => (
             <Profile
-                key={person.imageid}
+                key={person.imageId}
                 name={person.name}
-                imageId={person.imageid}
+                imageId={person.imageId}
                 profession={person.profession}
                 awards={person.awards}
                 discovery={person.discovery}

@@ -2,7 +2,7 @@
 import { getImageUrl } from './utils';
 
 export default function Profile({
-    imageid,
+    imageId,
     name,
     profession,
     awards,
@@ -13,7 +13,7 @@ export default function Profile({
         <section className="profile">
             <h2>{name}</h2>
             <img 
-                    src={getImageUrl(imageid, imageSize)} 
+                    src={getImageUrl(imageId)} 
                     alt={name} 
                     className="avatar" 
                     style={{ width: `${imageSize}px`, height: `${imageSize}px` }}
