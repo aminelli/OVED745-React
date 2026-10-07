@@ -4,6 +4,9 @@ import './App.css'
 import { StateRoutingDemo } from './routers/StateRoutingDemo'
 import { HistoryApiDemo } from './routers/HistoryApiDemo'
 import { HashRoutingDemo } from './routers/HashRoutingDemo'
+import ReactRouteDemo from './routers/ReactRouteDemo'
+import { TanStackRouterDemo } from './routers/TanStackRouterDemo'
+import { WouterDemo } from './routers/WouterDemo'
 
 type DemoId = 'state' | 'history' | 'hash' | 'react-router' | 'tanstack' | 'wouter'
 
@@ -76,6 +79,9 @@ export default function App() {
         {activeDemo === 'state' && <StateRoutingDemo />}
         {activeDemo === 'history' && <HistoryApiDemo />}
         {activeDemo === 'hash' && <HashRoutingDemo />}
+        {activeDemo === 'react-router' && <ReactRouteDemo />}
+        {activeDemo === 'tanstack' && <TanStackRouterDemo />}
+        {activeDemo === 'wouter' && <WouterDemo />}
 
       </section>
 

@@ -22,9 +22,9 @@ export function HashRoutingDemo() {
     return (
         <section className="demo-panel">
             <DemoHeading eyebrow="Native approach 03" title="Hash Routing">
-                Le rotte vivono dopo <code>#</code>, quindi il browser non richiede al server risorse diverse per ogni schermata.
+                Router basato su route objects: layout annidati, loader, parametri, query string e error boundary.
             </DemoHeading>
-            <div className="demo-toolbar">
+            <div className="route-links">
                 <a href="#/native-history/home">Home</a>
                 <a href="#/native-history/products?category=outdoors">Prodotti filtrati</a>
                 <a href="#/native-history/products/42?tab=reviews">Prodotto 42</a>
