@@ -3,6 +3,7 @@ import './App.css'
 
 import { StateRoutingDemo } from './routers/StateRoutingDemo'
 import { HistoryApiDemo } from './routers/HistoryApiDemo'
+import { HashRoutingDemo } from './routers/HashRoutingDemo'
 
 type DemoId = 'state' | 'history' | 'hash' | 'react-router' | 'tanstack' | 'wouter'
 
@@ -74,6 +75,7 @@ export default function App() {
       <section className="content-area">
         {activeDemo === 'state' && <StateRoutingDemo />}
         {activeDemo === 'history' && <HistoryApiDemo />}
+        {activeDemo === 'hash' && <HashRoutingDemo />}
 
       </section>
 
