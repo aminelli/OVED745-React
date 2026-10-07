@@ -1,8 +1,10 @@
-import DemoHeading from './DemoHeading'
 import { useState } from 'react'
 import './App.css'
 
-type DemoId = 'state' | 'hystory' | 'hash' | 'react-router' | 'tanstack' | 'wouter'
+import { StateRoutingDemo } from './routers/StateRoutingDemo'
+import { HistoryApiDemo } from './routers/HistoryApiDemo'
+
+type DemoId = 'state' | 'history' | 'hash' | 'react-router' | 'tanstack' | 'wouter'
 
 const demos: {
   id: DemoId;
@@ -11,7 +13,7 @@ const demos: {
   description: string;
 }[] = [
   { id: 'state',          label: 'React State',     href: '/native-state/',         description: 'Stato locale, senza URL' },
-  { id: 'hystory',        label: 'History API',     href: '/native-history/home',   description: 'pushState e popstate' },
+  { id: 'history',        label: 'History API',     href: '/native-history/home',   description: 'pushState e popstate' },
   { id: 'hash',           label: 'Hash Routing',    href: '/#/native-hash/home',    description: 'URL senza fallback server' },
   { id: 'react-router',   label: 'React Router',    href: '/react-router/',         description: 'Rotte annidate e loader' },
   { id: 'tanstack',       label: 'TanStack Router', href: '/tanstack/',             description: 'Tipi e search params' },
@@ -24,73 +26,12 @@ function getActiveDemo(): DemoId {
   
   const path = window.location.pathname
   
-  if (path.startsWith('/native-history')) return 'hystory'
+  if (path.startsWith('/native-history')) return 'history'
   if (path.startsWith('/react-router')) return 'react-router'
   if (path.startsWith('/tanstack')) return 'tanstack'
   if (path.startsWith('/wouter')) return 'wouter'
 
   return 'state'
-}
-
-function StateRoutingDemo(){
-
-  const [currentRoute, setCurrentRoute] = useState('/')
-  const [signedIn, setSignedIn] = useState(false)
-
-  const route = new URL(currentRoute, window.location.origin)
-  const productMatch = route.pathname.match(/^\/products\/([^/]+)$/)
-
-  function navigate(path: string) {
-    setCurrentRoute(path)
-  }
-
-  return (
-    <section className="demo-panel">
-
-      <DemoHeading eyebrow="Approccio Nativo" title="Routing con Stato React">
-        Caso più semplice: cambia la vista in base a uno stato.
-        Non viene effettuata la sincronizzazione con l'URL, cronologia, o deeplink.
-      </DemoHeading>
-
-      <div className="demo-toolbar">
-        <button onClick={() => navigate('/')} type="button">Home</button>
-        <button onClick={() => navigate('/products/42?tab=reviews')} type="button">Product 42</button>
-        <button onClick={() => navigate('/account')}  type="button">Area Riservata</button>
-        <button onClick={() => navigate('/missing')}  type="button">Rotta Inesistente</button>
-      </div>
-
-      <div className="route-output">
-        {route.pathname === '/' && <><h3>Home</h3><p>Seleziona una vista usando i pulsanti sopra.</p></>}
-
-        {productMatch && (
-          <>
-          <h3>Product {decodeURIComponent(productMatch[1])}</h3>
-          <p>Query Parameters: <code>tab={route.searchParams.get('tab') ?? 'overview'}</code></p>
-          </>
-        )}
-
-        {route.pathname === '/account' && (
-          <>
-          <h3>Area Riservata</h3>
-          <button onClick={() => setSignedIn((value) => !value)} type="button">
-            {signedIn ? 'Sign Out' : 'Sign In'}
-          </button>
-          <p>{signedIn ? 'Sei autenticato.' : 'Non sei autenticato.'}</p>
-          </>
-        )}
-
-        {route.pathname !== '/' && route.pathname !== '/account'  && !productMatch && (
-          <>
-          <h3>404 - Vista non trovata</h3>
-          <p>La gestione del fallback è responsabilità dell'applicazione</p>
-          </>
-        )}
-
-      </div>
-      <p className="notice">URL attuale: <code>{window.location.pathname}{window.location.search}</code></p>
-      
-    </section>
-  )
 }
 
 
@@ -131,7 +72,8 @@ export default function App() {
       </nav>
 
       <section className="content-area">
-
+        {activeDemo === 'state' && <StateRoutingDemo />}
+        {activeDemo === 'history' && <HistoryApiDemo />}
 
       </section>
 
